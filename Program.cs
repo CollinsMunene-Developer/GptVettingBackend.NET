@@ -1,7 +1,11 @@
 using Microsoft.EntityFrameworkCore;
-using YourNamespace.Data;
-using YourNamespace.Services;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
+using GptVettingBackend.Data;
+using GptVettingBackend.Services;
+// Adjust the namespace as needed
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.

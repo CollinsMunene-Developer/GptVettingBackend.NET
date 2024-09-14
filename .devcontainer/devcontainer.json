@@ -1,33 +1,31 @@
+
 {
-    "name": "Your Dev Container",
-    "image": "mcr.microsoft.com/dotnet/sdk:5.0",
-    "extensions": [],
-    "settings": {},
-    "forwardPorts": [],
-    "postCreateCommand": "dotnet restore",
-    "remoteUser": "root",
-    "workspaceMount": "source=${localWorkspaceFolder},target=/app,type=bind,consistency=cached",
-    "workspaceFolder": "/app",
-    "containerEnv": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+    "name": "cmg-azcontreg-worker",
+    "dockerFile": "Dockerfile.Dev",
+    "customizations": {
+      "vscode": {
+        "settings": {
+          "terminal.integrated.shell.linux": "/bin/bash"
+        },
+        "extensions": [
+            "ms-dotnettools.csharp",
+            "ms-azuretools.vscode-docker",
+            "eamodio.gitlens",
+            "GitHub.copilot",
+            "ms-dotnettools.csdevkit"
+        ]
+      }
     },
-    "runArgs": ["-v", "/var/run/docker.sock:/var/run/docker.sock"],
-    "overrideCommand": false,
-    "appPort": [],
-    "extensions": [],
-    "dockerComposeFile": "docker-compose.yml",
-    "service": "app",
-    "workspaceReloadAllowlist": [
-        "/app/**/*.cs",
-        "/app/**/*.json",
-        "/app/**/*.csproj",
-        "/app/**/*.sln"
+    "postCreateCommand": "dotnet restore ./cmg-azcontreg-worker.csproj",
+    "runArgs": ["--privileged"],
+    "mounts": [
+      "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
     ],
-    "settings": {
-        "terminal.integrated.shell.linux": "/bin/bash"
+    "remoteEnv": {
+      "DOCKER_HOST": "unix:///var/run/docker.sock"
     },
-    "containerEnv": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-    },
-    "containerEnvFile": "${localWorkspaceFolder}/.env"
-}
+      "features": {
+        "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
+      },  
+    "forwardPorts": [5050, 5051,1433]
+  }
