@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GptVettingBackend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d9f75e903b8e765a4d8e21222e82eb6b0548f8f8")]
 [assembly: System.Reflection.AssemblyProductAttribute("GptVettingBackend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GptVettingBackend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
