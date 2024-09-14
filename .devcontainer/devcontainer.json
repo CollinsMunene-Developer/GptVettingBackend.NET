@@ -1,0 +1,33 @@
+{
+    "name": "Your Dev Container",
+    "image": "mcr.microsoft.com/dotnet/sdk:5.0",
+    "extensions": [],
+    "settings": {},
+    "forwardPorts": [],
+    "postCreateCommand": "dotnet restore",
+    "remoteUser": "root",
+    "workspaceMount": "source=${localWorkspaceFolder},target=/app,type=bind,consistency=cached",
+    "workspaceFolder": "/app",
+    "containerEnv": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+    },
+    "runArgs": ["-v", "/var/run/docker.sock:/var/run/docker.sock"],
+    "overrideCommand": false,
+    "appPort": [],
+    "extensions": [],
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "app",
+    "workspaceReloadAllowlist": [
+        "/app/**/*.cs",
+        "/app/**/*.json",
+        "/app/**/*.csproj",
+        "/app/**/*.sln"
+    ],
+    "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash"
+    },
+    "containerEnv": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+    },
+    "containerEnvFile": "${localWorkspaceFolder}/.env"
+}
